@@ -24,5 +24,5 @@ Login -> cellar
 
 #Contributors
 
-Jesse, Chelle, James, Jon 
+Jesse, Chelle, James, Jon, Erin
 
