@@ -21,7 +21,7 @@ Login -> cellar
 
 ## Contributors
 
-Main Contributors: [Jon](https://github.com/kleppy), [Jesse Denier](https://github.com/JesseDenier), [James Ohlhausen](https://github.com/OhlhJames), [Chelle Wood](https://github.com/chelleyoungw)
+Main Contributors: [Jon](https://github.com/kleppy), [Jesse Denier](https://github.com/JesseDenier), [James Ohlhausen](https://github.com/OhlhJames), [Chelle Wood](https://github.com/chelleyoungw), [Erin](https://github.com/sinclairems)
 
 Additional Contributors: None
 
