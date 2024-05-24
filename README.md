@@ -24,4 +24,5 @@ Login -> cellar
 
 #Contributors
 
+[ErinMS](https://github.com/sinclairems)
 
