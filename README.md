@@ -23,7 +23,7 @@ Login -> cellar
 
 Jon, James Ohlhausen
 
-Main Contributors: [Jon](https://github.com/kleppy), [Jesse Denier](https://github.com/JesseDenier), [James Ohlhausen](https://github.com/OhlhJames)
+Main Contributors: [Jon](https://github.com/kleppy), [Jesse Denier](https://github.com/JesseDenier), [James Ohlhausen](https://github.com/OhlhJames), [Erin](https://github.com/sinclairems)
 
 Additional Contributors: None
 
