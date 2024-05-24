@@ -24,4 +24,4 @@ Login -> cellar
 
 # Contributors
 
-Jon, 
+Jon, James Ohlhausen
