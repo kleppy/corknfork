@@ -1,0 +1,41 @@
+// Imports required imports from React.
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// Imports the App.jsx file which works with the router.
+import App from "./App";
+
+// Imports pages the router will use to conditionally show the appropriate views.
+import ErrorPage from "./pages/ErrorPage";
+import HomePage from "./pages/HomePage";
+import LogInPage from "./pages/LogInPage";
+import SignUpPage from "./pages/SignUpPage";
+
+// Defines the accessible routes, and which components to respond to which URL.
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "/login",
+        element: <LogInPage />,
+      },
+      {
+        path: "/signup",
+        element: <SignUpPage />,
+      },
+    ],
+  },
+]);
+
+// Renders the RouterProvider component to the HTML.
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
+);
