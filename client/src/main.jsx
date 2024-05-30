@@ -13,6 +13,7 @@ import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import LogInPage from "./pages/LogInPage";
 import SignUpPage from "./pages/SignUpPage";
+import CellarPage from "./pages/CellarPage";
 
 // Defines the accessible routes, and which components to respond to which URL.
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUpPage />,
+      },
+      {
+        path: "/cellar",
+        element: <CellarPage />,
       },
     ],
   },
