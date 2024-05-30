@@ -3,8 +3,20 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+// imports Tailwind CSS
+import "../src/index.css";
+
 // Imports the App.jsx file which works with the router.
 import App from "./App";
+
+// imports the CSS file for Tailwind CSS
+import reportWebVitals from "./reportWebVitals";
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
 //TODO: Add more pages here and under src/pages based on our discussion of how the cellar should work.
 
