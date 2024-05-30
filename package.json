@@ -4,6 +4,7 @@
   "description": "## Description",
   "main": "index.js",
   "scripts": {
+    "install": " cd server && npm i && cd ../client && npm i",
     "dev": "npm run dev --prefix client",
     "seed": "npm run seed --prefix server",
     "build": "vite build",
