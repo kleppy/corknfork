@@ -1,30 +1,30 @@
-const mongoose = require('mongoose');
+// Imports necessary mongoose assets.
+const { Schema, model } = require("mongoose");
 
-const { Schema } = mongoose;
-
+// Defines the Food schema with necessary fields.
 const foodSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        trim: true
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  image: {
+    type: String,
+  },
+  pairs: [
+    {
+      type: String,
+      required: true,
     },
-    image: {
-        type: String
+  ],
+  flavors: [
+    {
+      type: String,
+      required: true,
     },
-    pairs: [
-        {
-            type: String,
-            required: true,
-        },
-    ],
-    flavors: [
-        {
-            type: String,
-            required: true,
-        },
-    ],
+  ],
 });
 
-const Food = mongoose.model('Food', foodSchema);
-
+// Initializes and exports the food model.
+const Food = model("Food", foodSchema);
 module.exports = Food;
