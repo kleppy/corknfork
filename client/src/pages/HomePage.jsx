@@ -4,7 +4,6 @@ import React from "react";
 import pear from "/pear.svg";
 
 //TODO: Make it so each pear icon links to another page or a modal with paired opposites of it's associated list item.
-//TODO: Remove inline CSS from pear icons and build out comprehensive linked CSS file.
 
 export default function HomePage() {
   return (
@@ -14,13 +13,13 @@ export default function HomePage() {
         <h2>Foods</h2>
         <ul>
           <li>
-            Food A<img src={pear} alt="Pear Icon" style={{ width: "15px" }} />
+            Food A<img src={pear} alt="Pear Icon" class="w-4" />
           </li>
           <li>
-            Food B<img src={pear} alt="Pear Icon" style={{ width: "15px" }} />
+            Food B<img src={pear} alt="Pear Icon" class="w-4" />
           </li>
           <li>
-            Food C<img src={pear} alt="Pear Icon" style={{ width: "15px" }} />
+            Food C<img src={pear} alt="Pear Icon" class="w-4" />
           </li>
         </ul>
       </div>
@@ -28,13 +27,13 @@ export default function HomePage() {
         <h2>Wines</h2>
         <ul>
           <li>
-            Wine A<img src={pear} alt="Pear Icon" style={{ width: "15px" }} />
+            Wine A<img src={pear} alt="Pear Icon" class="w-4" />
           </li>
           <li>
-            Wine B<img src={pear} alt="Pear Icon" style={{ width: "15px" }} />
+            Wine B<img src={pear} alt="Pear Icon" class="w-4" />
           </li>
           <li>
-            Wine C<img src={pear} alt="Pear Icon" style={{ width: "15px" }} />
+            Wine C<img src={pear} alt="Pear Icon" class="w-4" />
           </li>
         </ul>
       </div>
