@@ -2,9 +2,8 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-// Imports repeated components for header and footer.
+// Imports repeated components for header.
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 
 function App() {
   // Outlet component conditionally swaps between the different pages according to the URL.
@@ -12,7 +11,6 @@ function App() {
     <>
       <Header />
       <Outlet />
-      <Footer />
     </>
   );
 }
