@@ -1,11 +1,33 @@
-// Imports the required imports from React and 'react-router-dom'
 import React from "react";
-import { Link } from "react-router-dom";
 
 // Imports the custom files needed below.
-import Navbar from "./Navbar";
+import CorkNForkLogo from "../../public/corknfork-logo.svg";
 
-// Sets up the structure of the header and calls the Navbar.jsx file to create the navlist within the header.
+// Sets up the structure of the header and navigation bar.
+
+//TODO: Remove inline CSS and add custom CSS to make this look good.
+//TODO: Make it so Log Out only appears when you are logged in and vice versa for log in and sign up.
+
 export default function Header() {
-  return <header></header>;
+  return (
+    <header>
+      <div>
+        <img
+          src={CorkNForkLogo}
+          alt="Cork N Fork Logo"
+          style={{ width: "35px" }}
+        />
+        <h1>CORK N FORK</h1>
+      </div>
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>Wine Cellar</li>
+          <li>Log In</li>
+          <li>Sign Up</li>
+          <li>Log Out</li>
+        </ul>
+      </nav>
+    </header>
+  );
 }
