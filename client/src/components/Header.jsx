@@ -1,7 +1,7 @@
 import React from "react";
 
 // Imports the custom files needed below.
-import CorkNForkLogo from "../../public/corknfork-logo.svg";
+import CorkNForkLogo from "/corknfork-logo.svg";
 
 // Sets up the structure of the header and navigation bar.
 
