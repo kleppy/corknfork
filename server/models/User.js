@@ -1,50 +1,49 @@
-const mongoose = require('mongoose');
+// Imports necessary mongoose, bcrpyt, and custom assets.
+const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
+const Cellar = require("./Cellar");
 
-const { Schema } = mongoose;
-const bcrypt = require('bcrypt');
-
-const Cellar = require('./Cellar');
-
+// Defines the User schema with necessary fields and validation.
 const userSchema = new Schema({
-  firstName: {
+  username: {
     type: String,
     required: true,
-    trim: true
-  },
-  lastName: {
-    type: String,
-    required: true,
-    trim: true
+    unique: true,
+    trim: true,
   },
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    match: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+    lowercase: true,
   },
   password: {
     type: String,
     required: true,
-    minlength: 5
+    minlength: 5,
   },
-  cellar: [Cellar.schema]
+  cellar: [Cellar.schema],
 });
 
-// set up pre-save middleware to create password
-userSchema.pre('save', async function(next) {
-  if (this.isNew || this.isModified('password')) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
+// Pre-save middleware to hash the password before saving.
+userSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
+    try {
+      const saltRounds = 10;
+      this.password = await bcrypt.hash(this.password, saltRounds);
+    } catch (err) {
+      return next(err);
+    }
   }
-
   next();
 });
 
-// compare the incoming password with the hashed password
-userSchema.methods.isCorrectPassword = async function(password) {
+// Compares incoming password with the hashed password.
+userSchema.methods.isCorrectPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-const User = mongoose.model('User', userSchema);
-
+// Initializes and exports the user model.
+const User = model("User", userSchema);
 module.exports = User;
-
