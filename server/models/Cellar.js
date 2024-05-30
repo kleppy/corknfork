@@ -3,11 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const cellarSchema = new Schema({
-  Email: {
-    type: String,
-    required: true,
-    trim: true
-  }, 
+  User: object.id, 
   Pair:[{
       Food: object.id,
       Wine: object.id
