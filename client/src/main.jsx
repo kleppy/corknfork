@@ -2,6 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./output.css";
 
 // Imports the App.jsx file which works with the router.
 import App from "./App";
