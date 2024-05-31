@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <header>
       <div>
-        <img src={CorkNForkLogo} alt="Cork N Fork Logo" class="w-9" />
+        <img src={CorkNForkLogo} alt="Cork N Fork Logo" className="w-9" />
         <h1>CORK N FORK</h1>
       </div>
       <nav>
