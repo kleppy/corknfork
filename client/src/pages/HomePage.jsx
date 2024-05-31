@@ -12,28 +12,28 @@ export default function HomePage() {
       <div>
         <h2>Foods</h2>
         <ul>
-          <li>
-            Food A<img src={pear} alt="Pear Icon" class="w-4" />
+          <li className="flex items-center">
+            Food A<img src={pear} alt="Pear Icon" className="w-4 ml-2" />
           </li>
-          <li>
-            Food B<img src={pear} alt="Pear Icon" class="w-4" />
+          <li className="flex items-center">
+            Food B<img src={pear} alt="Pear Icon" className="w-4 ml-2" />
           </li>
-          <li>
-            Food C<img src={pear} alt="Pear Icon" class="w-4" />
+          <li className="flex items-center">
+            Food C<img src={pear} alt="Pear Icon" className="w-4 ml-2" />
           </li>
         </ul>
       </div>
       <div>
         <h2>Wines</h2>
         <ul>
-          <li>
-            Wine A<img src={pear} alt="Pear Icon" class="w-4" />
+          <li className="flex items-center">
+            Wine A<img src={pear} alt="Pear Icon" className="w-4 ml-2" />
           </li>
-          <li>
-            Wine B<img src={pear} alt="Pear Icon" class="w-4" />
+          <li className="flex items-center">
+            Wine B<img src={pear} alt="Pear Icon" className="w-4 ml-2" />
           </li>
-          <li>
-            Wine C<img src={pear} alt="Pear Icon" class="w-4" />
+          <li className="flex items-center">
+            Wine C<img src={pear} alt="Pear Icon" className="w-4 ml-2" />
           </li>
         </ul>
       </div>

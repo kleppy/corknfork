@@ -5,18 +5,13 @@ import CorkNForkLogo from "/corknfork-logo.svg";
 
 // Sets up the structure of the header and navigation bar.
 
-//TODO: Remove inline CSS and add custom CSS to make this look good.
 //TODO: Make it so Log Out only appears when you are logged in and vice versa for log in and sign up.
 
 export default function Header() {
   return (
     <header>
       <div>
-        <img
-          src={CorkNForkLogo}
-          alt="Cork N Fork Logo"
-          style={{ width: "35px" }}
-        />
+        <img src={CorkNForkLogo} alt="Cork N Fork Logo" className="w-9" />
         <h1>CORK N FORK</h1>
       </div>
       <nav>
