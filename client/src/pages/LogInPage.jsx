@@ -29,7 +29,8 @@ function Login(props) {
     });
   };
 
-  return ( //className filled in later with Tailwind CSS
+  return (
+    //className filled in later with Tailwind CSS
     <div className="">
       <Link to="/signup">← Go to Signup</Link>
 
@@ -43,6 +44,7 @@ function Login(props) {
             type="email"
             id="email"
             onChange={handleChange}
+            autoComplete="email"
           />
         </div>
         <div className="">
@@ -53,6 +55,7 @@ function Login(props) {
             type="password"
             id="pwd"
             onChange={handleChange}
+            autoComplete="current-password"
           />
         </div>
         {error ? (
