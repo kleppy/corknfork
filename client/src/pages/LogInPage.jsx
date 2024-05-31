@@ -14,8 +14,20 @@ function Login(props) {
       const mutationResponse = await login({
         variables: { email: formState.email, password: formState.password },
       });
-      const token = mutationResponse.data.login.token;
-      Auth.login(token);
+
+      console.log("Mutation response:", mutationResponse); // Log the full response
+
+      if (
+        mutationResponse &&
+        mutationResponse.data &&
+        mutationResponse.data.login
+      ) {
+        const token = mutationResponse.data.login.token;
+        Auth.login(token);
+      } else {
+        console.error("Login mutation response:", mutationResponse);
+        throw new Error("Login failed");
+      }
     } catch (e) {
       console.log(e);
     }
@@ -30,7 +42,6 @@ function Login(props) {
   };
 
   return (
-    //className filled in later with Tailwind CSS
     <div className="">
       <Link to="/signup">← Go to Signup</Link>
 

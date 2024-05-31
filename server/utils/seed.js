@@ -2,6 +2,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const Food = require("../models/Food");
 const Wine = require("../models/Wine");
+const User = require("../models/User");
 
 // Sets object "corknforkDB" to a hidden value inside the .env in the server directory.
 const corknforkDB = process.env.CORKNFORK_DB;
@@ -59,8 +60,17 @@ const seedData = async () => {
     },
   ];
 
+  const users = [
+    {
+      username: "John Smith",
+      email: "john@gmail.com",
+      password: "password",
+    },
+  ];
+
   await Food.insertMany(foods);
   await Wine.insertMany(wines);
+  await User.insertMany(users);
 
   console.log("Data seeded successfully");
   mongoose.connection.close();
