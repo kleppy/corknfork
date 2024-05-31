@@ -3,15 +3,20 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const cellarSchema = new Schema({
-  User: object.id, 
-  Pair:[{
-      Food: object.id,
-      Wine: object.id
-  }],
-  Wine: object.id,
-  Food: object.id,
+  User: {
+    type: mongoose.ObjectId,
+    ref:'User'
+  }, 
+  Wine:{
+    type: mongoose.ObjectId,
+    ref:"Wine"
+  },
+  Food: {
+    type: mongoose.ObjectId,
+    ref:'Food'
+  }
 }); 
 
-const Food = mongoose.model('Cellar', cellarSchema);
+const Cellar = mongoose.model('Cellar', cellarSchema);
 
 module.exports = Cellar;
