@@ -18,19 +18,19 @@ const seedData = async () => {
     const foods = [
       {
         name: "Steak",
-        image: "steak.jpg",
+        image: "./imgs/steak.jpeg",
         pairs: ["Bold", "Full-bodied"],
         flavors: ["Savory", "Juicy"],
       },
       {
         name: "Salmon",
-        image: "salmon.jpg",
+        image: "./imgs/salmon.jpeg",
         pairs: ["Crisp", "Buttery"],
         flavors: ["Rich", "Buttery"],
       },
       {
         name: "Chocolate Cake",
-        image: "chocolate_cake.jpg",
+        image: "./imgs/cake.jpeg",
         pairs: ["Sweet", "Rich"],
         flavors: ["Sweet", "Rich"],
       },

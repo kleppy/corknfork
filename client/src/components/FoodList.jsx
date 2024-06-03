@@ -31,7 +31,7 @@ const FoodList = () => {
         foods.map((food) => (
           <div key={food._id}>
             <h3>{food.name}</h3>
-            <img src={food.image} alt={food.name} />
+            <img src={food.image} alt={food.name} className="w-60" />
             <p>Pairs: {food.pairs.join(", ")}</p>
             <p>Flavors: {food.flavors.join(", ")}</p>
           </div>
