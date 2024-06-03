@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "install": " cd server && npm i && cd ../client && npm i",
-    "dev": "npm run dev --prefix client",
+    "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
     "seed": "npm run seed --prefix server",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
@@ -18,6 +18,8 @@
     "concurrently": "^8.2.2",
     "dotenv": "^16.4.5",
     "mongoose": "^8.4.0",
+    "node-fetch": "^3.3.2",
+    "punycode": "^2.3.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",

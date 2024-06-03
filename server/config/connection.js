@@ -1,5 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+require("dotenv").config(); // Load environment variables
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/cnf');
+mongoose.connect(process.env.CORKNFORK_DB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 module.exports = mongoose.connection;
