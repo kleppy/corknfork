@@ -39,19 +39,19 @@ const seedData = async () => {
     const wines = [
       {
         name: "Cabernet Sauvignon",
-        image: "cabernet_sauvignon.jpg",
+        image: "./imgs/cabernet_sauvignon.jpeg",
         pairs: ["Savory", "Juicy"],
         flavors: ["Bold", "Full-bodied"],
       },
       {
         name: "Chardonnay",
-        image: "chardonnay.jpg",
+        image: "./imgs/chardonnay.jpeg",
         pairs: ["Rich", "Buttery"],
         flavors: ["Crisp", "Buttery"],
       },
       {
         name: "Port",
-        image: "port.jpg",
+        image: "./imgs/port.jpeg",
         pairs: ["Sweet", "Rich"],
         flavors: ["Sweet", "Rich"],
       },
