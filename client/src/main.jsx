@@ -2,12 +2,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// Imports required imports from Apollo.
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+
+// Imports tailwind created CSS.
 import "./output.css";
 
 // Imports the App.jsx file which works with the router.
 import App from "./App";
-
-//TODO: Add more pages here and under src/pages based on our discussion of how the cellar should work.
 
 // Imports pages the router will use to conditionally show the appropriate views.
 import ErrorPage from "./pages/ErrorPage";
@@ -43,7 +46,15 @@ const router = createBrowserRouter([
   },
 ]);
 
-// Renders the RouterProvider component to the HTML.
+// Initialize Apollo Client
+const client = new ApolloClient({
+  uri: "graphql",
+  cache: new InMemoryCache(),
+});
+
+// Renders the RouterProvider component wrapped in an Apollo client to the HTML.
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <ApolloProvider client={client}>
+    <RouterProvider router={router} />
+  </ApolloProvider>
 );
