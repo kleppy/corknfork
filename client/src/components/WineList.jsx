@@ -3,11 +3,11 @@ import { useQuery } from "@apollo/client";
 import { QUERY_WINES } from "../utils/queries";
 
 // Functional component for displaying a list of wines
-const WineList = () => {
+const WineList = ({ wines }) => {
   // Destructure loading, data, and error from the useQuery hook
   const { loading, data, error } = useQuery(QUERY_WINES);
   // Extract wines from data or set to an empty array if data is undefined
-  const wines = data?.wines || [];
+  const winesData = data?.wines || wines;
 
   // Display a loading message while the query is in progress
   if (loading) {
@@ -21,19 +21,27 @@ const WineList = () => {
   }
 
   // Log the fetched wines to the console for debugging purposes
-  console.log("Fetched wines:", wines);
+  console.log("Fetched wines:", winesData);
 
   // Return the JSX to render the list of wines or a message if no wines are available
   return (
-    <div>
-      {wines.length ? (
+    <div className="space-y-4">
+      {winesData.length ? (
         // Map over the wines array and render each wine item
-        wines.map((wine) => (
-          <div key={wine._id}>
-            <h3>{wine.name}</h3>
-            <img src={wine.image} alt={wine.name} className="w-60" />
-            <p>Pairs: {wine.pairs.join(", ")}</p>
-            <p>Flavors: {wine.flavors.join(", ")}</p>
+        winesData.map((wine) => (
+          <div key={wine._id} className="border rounded-lg p-4 shadow">
+            <h3 className="text-xl font-semibold">{wine.name}</h3>
+            <img
+              src={wine.image}
+              alt={wine.name}
+              className="w-full h-48 object-contain mb-2"
+            />
+            <p>
+              <strong>Pairs:</strong> {wine.pairs.join(", ")}
+            </p>
+            <p>
+              <strong>Flavors:</strong> {wine.flavors.join(", ")}
+            </p>
           </div>
         ))
       ) : (
