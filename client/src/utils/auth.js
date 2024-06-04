@@ -1,3 +1,5 @@
+
+//jwt decode
 import decode from 'jwt-decode';
 
 class AuthService {
@@ -36,6 +38,11 @@ class AuthService {
     localStorage.removeItem('id_token');
     window.location.reload();
   }
+  
 }
 
 export default new AuthService();
+
+
+
+
