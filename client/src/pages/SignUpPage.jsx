@@ -1,17 +1,15 @@
 import React from "react";
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-
-import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
-
-import Auth from '../utils/auth';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../utils/mutations";
+import Auth from "../utils/auth";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
-    username: '',
-    email: '',
-    password: '',
+    username: "",
+    email: "",
+    password: "",
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
@@ -47,7 +45,7 @@ const Signup = () => {
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now head{' '}
+                Success! You may now head{" "}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
@@ -57,8 +55,9 @@ const Signup = () => {
                   placeholder="Your username"
                   name="username"
                   type="text"
-                  value={formState.name}
+                  value={formState.username}
                   onChange={handleChange}
+                  autoComplete="username"
                 />
                 <input
                   className="form-input"
@@ -67,6 +66,7 @@ const Signup = () => {
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
+                  autoComplete="email"
                 />
                 <input
                   className="form-input"
@@ -75,12 +75,9 @@ const Signup = () => {
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
+                  autoComplete="current-password"
                 />
-                <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
+                <button className="btn btn-block btn-primary" type="submit">
                   Submit
                 </button>
               </form>
