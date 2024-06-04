@@ -15,9 +15,11 @@ function Login(props) {
         variables: { email: formState.email, password: formState.password },
       });
       const token = mutationResponse.data.login.token;
+
       Auth.login(token);
+      props.history.push("/");
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   };
 
