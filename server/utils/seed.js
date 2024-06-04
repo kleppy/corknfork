@@ -2,6 +2,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const Food = require("../models/Food");
 const Wine = require("../models/Wine");
+const User = require("../models/User");
 
 const corknforkDB = process.env.CORKNFORK_DB;
 
@@ -14,6 +15,7 @@ const seedData = async () => {
 
     await Food.deleteMany({});
     await Wine.deleteMany({});
+    await User.deleteMany({});
 
     const foods = [
       {
@@ -56,9 +58,22 @@ const seedData = async () => {
         flavors: ["Sweet", "Rich"],
       },
     ];
+    const users = [
+      {
+        username: "John",
+        email: "john@gmail.com",
+        password: "password",
+      },
+      {
+        username: "Jane",
+        email: "jane@gmail.com",
+        password: "password",
+      },
+    ];
 
     await Food.insertMany(foods);
     await Wine.insertMany(wines);
+    await User.insertMany(users);
 
     console.log("Data seeded successfully");
     mongoose.connection.close();
