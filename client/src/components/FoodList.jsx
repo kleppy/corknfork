@@ -37,10 +37,10 @@ const FoodList = ({ foods }) => {
               className="w-full h-48 object-contain mb-2"
             />
             <p>
-              <strong>Pairs:</strong> {food.pairs.join(", ")}
+              <strong>Flavors:</strong> {food.flavors.join(", ")}
             </p>
             <p>
-              <strong>Flavors:</strong> {food.flavors.join(", ")}
+              <strong>Pairs With:</strong> {food.pairs.join(", ")}
             </p>
           </div>
         ))

@@ -37,10 +37,10 @@ const WineList = ({ wines }) => {
               className="w-full h-48 object-contain mb-2"
             />
             <p>
-              <strong>Pairs:</strong> {wine.pairs.join(", ")}
+              <strong>Flavors:</strong> {wine.flavors.join(", ")}
             </p>
             <p>
-              <strong>Flavors:</strong> {wine.flavors.join(", ")}
+              <strong>Pairs With:</strong> {wine.pairs.join(", ")}
             </p>
           </div>
         ))
