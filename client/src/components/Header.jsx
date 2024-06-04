@@ -4,7 +4,7 @@ import CorkNForkLogo from "/logo-transparent-no-buffer.png";
 export default function Header() {
   const isLoggedIn = false; // TODO: Replace with actual authentication logic.
   // TODO: Confirm that "Log In" and "Sign Up" shows up if user is not logged in, and "Log Out" shows up if user is logged in.
-
+// trying to push to branch...added code to try and get images in (delete this before submitting project)
   return (
     <header className="bg-rose text-yellow p-4">
       <div className="flex items-center justify-between">
