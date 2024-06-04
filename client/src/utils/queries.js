@@ -12,3 +12,16 @@ export const QUERY_FOODS = gql`
     }
   }
 `;
+
+// GraphQL query to fetch a list of wines with specific fields
+export const QUERY_WINES = gql`
+  query getWines {
+    wines {
+      _id
+      name
+      image
+      pairs
+      flavors
+    }
+  }
+`;
