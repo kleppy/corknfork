@@ -6,27 +6,29 @@ import { useQuery, gql } from "@apollo/client";
 import pear from "/pear.svg";
 import FoodList from "../components/FoodList";
 import WineList from "../components/WineList";
-import { QUERY_FOODS } from "../utils/queries";
-import { QUERY_WINES } from "../utils/queries";
-
-//TODO: Make it so each pear icon links to another page or a modal with paired opposites of it's associated list item.
-//TODO: Make it so a pear icon appears next to each dynamically added food.
+import { QUERY_FOODS, QUERY_WINES } from "../utils/queries";
 
 export default function HomePage() {
-  const { loading, data } = useQuery(QUERY_FOODS, QUERY_WINES);
-  const foods = data?.foods || [];
-  const wines = data?.wines || [];
+  const { loading: loadingFoods, data: dataFoods } = useQuery(QUERY_FOODS);
+  const { loading: loadingWines, data: dataWines } = useQuery(QUERY_WINES);
+  const foods = dataFoods?.foods || [];
+  const wines = dataWines?.wines || [];
+
+  if (loadingFoods || loadingWines) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <div>
-      <h1>Home Page</h1>
-      <div>
-        <h2>Foods</h2>
-        <FoodList />
-      </div>
-      <div>
-        <h2>Wines</h2>
-        <WineList />
+    <div className="container mx-auto px-4 py-8">
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <h2 className="text-2xl font-bold mb-4">Foods</h2>
+          <FoodList foods={foods} />
+        </div>
+        <div>
+          <h2 className="text-2xl font-bold mb-4">Wines</h2>
+          <WineList wines={wines} />
+        </div>
       </div>
     </div>
   );

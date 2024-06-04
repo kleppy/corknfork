@@ -3,11 +3,11 @@ import { useQuery } from "@apollo/client";
 import { QUERY_FOODS } from "../utils/queries";
 
 // Functional component for displaying a list of foods
-const FoodList = () => {
+const FoodList = ({ foods }) => {
   // Destructure loading, data, and error from the useQuery hook
   const { loading, data, error } = useQuery(QUERY_FOODS);
   // Extract foods from data or set to an empty array if data is undefined
-  const foods = data?.foods || [];
+  const foodsData = data?.foods || foods;
 
   // Display a loading message while the query is in progress
   if (loading) {
@@ -21,19 +21,27 @@ const FoodList = () => {
   }
 
   // Log the fetched foods to the console for debugging purposes
-  console.log("Fetched foods:", foods);
+  console.log("Fetched foods:", foodsData);
 
   // Return the JSX to render the list of foods or a message if no foods are available
   return (
-    <div>
-      {foods.length ? (
+    <div className="space-y-4">
+      {foodsData.length ? (
         // Map over the foods array and render each food item
-        foods.map((food) => (
-          <div key={food._id}>
-            <h3>{food.name}</h3>
-            <img src={food.image} alt={food.name} className="w-60" />
-            <p>Pairs: {food.pairs.join(", ")}</p>
-            <p>Flavors: {food.flavors.join(", ")}</p>
+        foodsData.map((food) => (
+          <div key={food._id} className="border rounded-lg p-4 shadow">
+            <h3 className="text-xl font-semibold">{food.name}</h3>
+            <img
+              src={food.image}
+              alt={food.name}
+              className="w-full h-48 object-contain mb-2"
+            />
+            <p>
+              <strong>Flavors:</strong> {food.flavors.join(", ")}
+            </p>
+            <p>
+              <strong>Pairs With:</strong> {food.pairs.join(", ")}
+            </p>
           </div>
         ))
       ) : (
