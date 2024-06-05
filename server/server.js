@@ -1,42 +1,51 @@
-// Import necessary modules
-const express = require("express"); // Express framework for creating web servers
-const { ApolloServer } = require("apollo-server-express"); // Apollo Server for GraphQL
-const mongoose = require("mongoose"); // Mongoose for MongoDB object modeling
-const { typeDefs, resolvers } = require("./schemas/index"); // Import GraphQL type definitions and resolvers
-require("dotenv").config(); // Load environment variables
+const express = require("express");
+const { ApolloServer } = require("@apollo/server");
+const { expressMiddleware } = require("@apollo/server/express4");
+const path = require("path");
+const { authMiddleware } = require("./utils/auth");
 
-// Function to start the server
-const startServer = async () => {
-  const app = express(); // Create an Express application
+const { typeDefs, resolvers } = require("./schemas");
+const db = require("./config/connection");
 
-  // Create an Apollo Server instance with the type definitions and resolvers
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-    context: ({ req }) => {
-      // Context function can be used to pass context to resolvers (e.g., authentication)
-    },
-  });
+const PORT = process.env.PORT || 3001;
+const app = express();
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
-  // Start the Apollo Server before applying middleware
+// Create a new instance of an Apollo server with the GraphQL schema
+const startApolloServer = async () => {
   await server.start();
 
-  // Apply Apollo Server middleware to the Express application
-  server.applyMiddleware({ app });
+  app.use(express.urlencoded({ extended: false }));
+  app.use(express.json());
 
-  // Connect to the MongoDB database using Mongoose
-  await mongoose.connect(process.env.CORKNFORK_DB, {
-    useNewUrlParser: true, // Use the new URL parser
-    useUnifiedTopology: true, // Use the new Server Discover and Monitoring engine
-  });
+  // Serve up static assets
+  app.use("/images", express.static(path.join(__dirname, "../client/public/images")));
 
-  // Start the Express server on port 3001
-  app.listen(
-    { port: 3001 },
-    () =>
-      console.log(`Server ready at http://localhost:3001${server.graphqlPath}`) // Log the server URL with the GraphQL endpoint
+  app.use(
+    "/graphql",
+    expressMiddleware(server, {
+      context: authMiddleware,
+    })
   );
+
+  if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "../client/dist")));
+
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+    });
+  }
+
+  db.once("open", () => {
+    app.listen(PORT, () => {
+      console.log(`API server running on port ${PORT}!`);
+      console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
+    });
+  });
 };
 
-// Call the function to start the server
-startServer();
+// Call the async function to start the server
+startApolloServer();

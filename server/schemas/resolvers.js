@@ -46,6 +46,12 @@ const resolvers = {
       const food = await Food.create({ name, image, pairs, flavors });
       return food;
     },
+    logout: async (parent, args, context) => {
+      if (!context.user) {
+        throw new AuthenticationError("Not logged in");
+      }
+      return { success: true };
+    },
   },
 };
 
