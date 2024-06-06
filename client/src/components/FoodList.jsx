@@ -39,9 +39,12 @@ const FoodList = ({ foods }) => {
             <p>
               <strong>Flavors:</strong> {food.flavors.join(", ")}
             </p>
-            <p>
+            <p className="mb-2">
               <strong>Pairs With:</strong> {food.pairs.join(", ")}
             </p>
+            <button className="bg-burgundy hover:bg-rose text-white px-4 py-2 rounded-lg">
+              What Pairs with this?
+            </button>
           </div>
         ))
       ) : (
