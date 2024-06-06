@@ -11,7 +11,6 @@ import {
   Navigate,
 } from "react-router-dom";
 
-
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
 const CheckoutForm = () => {
@@ -83,3 +82,5 @@ const App = () => {
     </div>
   );
 };
+
+module.exports = Stripe;
