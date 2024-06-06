@@ -1,11 +1,11 @@
-import {Navigate, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { Navigate, useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
 
 import React from "react";
 
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 export default function CellarPage() {
   const { username: userParam } = useParams();
@@ -26,7 +26,7 @@ export default function CellarPage() {
 
   if (!user?.username) {
     return (
-      <h4>
+      <h4 className="pt-20">
         You need to be logged in to see this. Use the navigation links above to
         sign up or log in!
       </h4>
@@ -38,19 +38,21 @@ export default function CellarPage() {
       {/* TODO: Change "Personal" to Users name. */}
       {/* TODO: Make it so all listed wines, foods, and pairs come from that users database. */}
       <h1> {user.username}'s Wine Cellar</h1>
-      <div className="flex-row justify-space-between my-4">
+      <div className="flex-row justify-space-between my-4 pt-20">
         {user.cellar &&
           user.cellar.map((pair) => (
             <div key={pair}>
               <div>
                 <h4>
                   Wine: {pair.wine} <br />
-                  Food: {pair.food}<br />
+                  Food: {pair.food}
+                  <br />
                 </h4>
               </div>
             </div>
           ))}
       </div>
-0    </div>
+      0{" "}
+    </div>
   );
-};
+}

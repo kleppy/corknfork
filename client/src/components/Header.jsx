@@ -6,13 +6,13 @@ const isLoggedIn = Auth.loggedIn();
 
 export default function Header() {
   return (
-    <header className="bg-rose text-yellow p-4">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center">
+    <header className="bg-rose text-yellow p-2 fixed top-0 w-full z-10 max-h-20">
+      <div className="flex items-center justify-between h-full">
+        <div className="flex items-center h-full">
           <img
             src={CorkNForkLogo}
             alt="Cork N Fork Logo"
-            className="w-40 mr-2"
+            className="h-full max-h-16 mr-2"
           />
           {/* <h1 className="text-xl font-bold">CORK N FORK</h1> */}
         </div>
@@ -44,7 +44,11 @@ export default function Header() {
             )}
             {isLoggedIn && (
               <li>
-                <a href="/" onClick={() => Auth.logout()} className="hover:text-black">
+                <a
+                  href="/"
+                  onClick={() => Auth.logout()}
+                  className="hover:text-black"
+                >
                   Log Out
                 </a>
               </li>
