@@ -4,9 +4,7 @@ const { expressMiddleware } = require("@apollo/server/express4");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
 
-const stripe = require("stripe")(
-  "sk_test_51POU8YBZUx6pYDq4mw9oRdPGWqK6bNFeM6x9qAdQjqX2MRkaZ8SWl3yyvmz5agZigj7QsNrOStJhwLuYwhLA9sdW00hi2nkqUQ"
-);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
@@ -32,14 +30,6 @@ const startApolloServer = async () => {
       context: authMiddleware,
     })
   );
-
-  if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "../client/dist")));
-
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "../client/dist/index.html"));
-    });
-  }
 
   app.post("/create-checkout-session", async (req, res) => {
     const session = await stripe.checkout.sessions.create({
