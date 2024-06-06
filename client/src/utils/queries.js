@@ -35,7 +35,7 @@ export const QUERY_FOODS = gql`
   }
 `;
 
-// GraphQL query to fetch a list of wines with specific fields
+
 export const QUERY_WINES = gql`
   query getWines {
     wines {
@@ -47,6 +47,31 @@ export const QUERY_WINES = gql`
     }
   }
 `;
+
+export const QUERY_WINE = gql`
+  query wine($wineId: ID!) {
+    wine(wineId: $wineId) {
+      _id
+      name
+      image
+      pairs
+      flavors
+    }
+  }
+`;
+
+export const QUERY_FOOD = gql`
+  query food($foodId: ID!) {
+    food(foodId: $foodId) {
+      _id
+      name
+      image
+      pairs
+      flavors
+    }
+  }
+`;
+
 export const QUERY_ME = gql`
   query me {
     me {

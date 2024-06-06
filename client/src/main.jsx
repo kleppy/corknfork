@@ -18,6 +18,8 @@ import HomePage from "./pages/HomePage";
 import LogInPage from "./pages/LogInPage";
 import SignUpPage from "./pages/SignUpPage";
 import CellarPage from "./pages/CellarPage";
+import FoodPairPage from "./pages/FoodPairPage";
+import WinePairPage from "./pages/WinePairPage" 
 import DonationPage from "./pages/DonationPage";
 
 // Defines the accessible routes, and which components to respond to which URL.
@@ -47,13 +49,21 @@ const router = createBrowserRouter([
         path: "/donate",
         element: <DonationPage />,
       },
+      {
+        path: "/wpair/:wineId",
+        element: <WinePairPage />,
+      },
+      {
+        path: "/fpair/:foodId",
+        element: <FoodPairPage />,
+      },
     ],
   },
 ]);
 
 // Initialize Apollo Client
 const client = new ApolloClient({
-  uri: "graphql",
+  uri: "/graphql",
   cache: new InMemoryCache(),
 });
 

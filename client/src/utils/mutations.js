@@ -23,3 +23,14 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export const ADD_PAIR = gql`
+  mutation addPair ($user: ID!, $foodId: ID!,  $wineId: ID!) {
+    addPair(user: $user, foodId: $foodId,  wineId: $wineId){
+      _id
+      user
+      food
+      wine
+    }
+  }
+`

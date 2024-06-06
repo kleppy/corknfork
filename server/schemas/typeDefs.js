@@ -53,12 +53,11 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     logout: Auth
     login(email: String!, password: String!): Auth
-    addFood(
-      name: String!
-      image: String
-      pairs: [String]!
-      flavors: [String]!
-    ): Food
+    addPair(
+      userId: ID!
+      wineId: ID!
+      FoodId: ID!
+    ): Cellar
   }
 `;
 
