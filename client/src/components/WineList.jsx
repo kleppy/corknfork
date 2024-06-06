@@ -39,12 +39,9 @@ const WineList = ({ wines }) => {
             <p>
               <strong>Flavors:</strong> {wine.flavors.join(", ")}
             </p>
-            <p>
+            <p className="mb-2">
               <strong>Pairs With:</strong> {wine.pairs.join(", ")}
             </p>
-            <button className="bg-burgundy hover:bg-rose text-white px-4 py-2 rounded-lg mb-2 mr-2">
-              Add to Cellar
-            </button>
             <button className="bg-burgundy hover:bg-rose text-white px-4 py-2 rounded-lg">
               What Pairs with this?
             </button>
