@@ -7,7 +7,6 @@ const resolvers = {
     user: async (parent, {userId}, context) => {
       console.log(userId)
       return User.findOne({_id: userId}).populate("cellar");
-
     },
     wines: async () => {
       return Wine.find();
@@ -46,9 +45,19 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addFood: async (parent, { name, image, pairs, flavors }) => {
-      const food = await Food.create({ name, image, pairs, flavors });
-      return food;
+    addPair: async (parent, { userId, wineId, foodId }, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: userId },
+          {
+            $addToSet: { cellar: [userId, wineId, foodId] },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
     },
     logout: async (parent, args, context) => {
       if (!context.user) {
