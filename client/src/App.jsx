@@ -2,7 +2,7 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import "./output.css";
-import stripePromise from "../utils/stripe";
+// import stripePromise from "../utils/stripe";
 
 // Imports custom components.
 import Header from "./components/Header";
