@@ -4,7 +4,7 @@ import React from "react";
 
 import { QUERY_USER } from '../utils/queries';
 
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 const CellarPage = () => {
   if (Auth.loggedIn()){
@@ -48,10 +48,6 @@ const CellarPage = () => {
       </div>
     );
   }
-
-  
-  
-  
 };
 
 export default CellarPage;
