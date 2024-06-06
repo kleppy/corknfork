@@ -60,11 +60,3 @@ export const QUERY_ME = gql`
     }
   }
 `;
-
-export const QUERY_DONATION = gql`
-  query donation {
-    donation {
-      session
-    }
-  }
-`;

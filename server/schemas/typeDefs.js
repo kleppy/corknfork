@@ -49,10 +49,6 @@ const typeDefs = gql`
     me: User
   }
 
-  type Donation {
-    session: ID
-  }
-
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     logout: Auth
