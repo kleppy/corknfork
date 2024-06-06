@@ -1,5 +1,6 @@
 const { User, Food, Wine, Cellar } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
+const stripe = require('stripe')('process.env.STRIPE_SECRET_KEY');
 
 const resolvers = {
   Query: {
@@ -29,6 +30,18 @@ const resolvers = {
       }
       throw new AuthenticationError("Not authenticated");
     },
+    donation: async (parent, args, context) => {
+      const session = stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items,
+        mode: 'payment',
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/`,
+      });
+
+      return { session: session.id };
+    }
+
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
