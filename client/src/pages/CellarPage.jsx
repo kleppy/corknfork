@@ -19,19 +19,19 @@ const CellarPage = () => {
 
     if (!user) {
       return (
-        <div className="flex flex-col items-center justify-center h-screen">
+        <div className="flex flex-col items-center justify-center h-screen bg-no-repeat">
           <h2 className="text-3xl font-semibold mb-6 text-center px-4">
             You need to be logged in to use your cellar!
           </h2>
           <Link
             to="/login"
-            className="bg-burgundy hover:bg-rose text-white font-bold py-2 px-4 rounded mb-4"
+            className="bg-burgundy hover:bg-black text-yellow font-bold py-2 px-4 rounded mb-4"
           >
             Go to Login
           </Link>
           <Link
             to="/signup"
-            className="bg-burgundy hover:bg-rose text-white font-bold py-2 px-4 rounded "
+            className="bg-burgundy hover:bg-black text-yellow font-bold py-2 px-4 rounded "
           >
             Go to Signup
           </Link>
@@ -48,7 +48,7 @@ const CellarPage = () => {
           </h2>
           <Link
             to="/"
-            className="bg-burgundy hover:bg-rose text-white font-bold py-2 px-4 rounded mb-4"
+            className="bg-burgundy hover:bg-yellow text-white font-bold py-2 px-4 rounded mb-4"
           >
             Go to Home
           </Link>
@@ -79,22 +79,32 @@ const CellarPage = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h2 className="text-3xl font-semibold mb-6 text-center px-4">
-        You need to be logged in to use your cellar!
-      </h2>
-      <Link
-        to="/login"
-        className="bg-burgundy hover:bg-rose text-white font-bold py-2 px-4 rounded mb-4"
-      >
-        Go to Login
-      </Link>
-      <Link
-        to="/signup"
-        className="bg-burgundy hover:bg-rose text-white font-bold py-2 px-4 rounded "
-      >
-        Go to Signup
-      </Link>
+    <div className="bg-no-repeat bg-cover bg-[url('../public/wine-cellar-xxl-bg.jpg')] flex flex-col items-center justify-center h-screen">
+      <div className="w-full max-w-md">
+        <div className="bg-rose text-yellow shadow-md rounded-lg p-8">
+          <h2 className="text-3xl font-semibold mb-6 text-center">
+          ACCESS DENIED
+          </h2>
+          <div className="card-body text-center">
+            <p className="text-center">You must login to view your wine cellar!</p>
+            <br></br>
+            <Link
+              to="/login"
+              className="w-full bg-burgundy hover:bg-black text-yellow font-bold py-2 px-4 rounded"
+            >
+              Go to Login
+            </Link>
+            <br></br>
+            <br></br>
+            <Link
+              to="/signup"
+              className="w-full bg-burgundy hover:bg-black text-yellow font-bold py-2 px-4 rounded"
+            >
+              Go to Signup
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

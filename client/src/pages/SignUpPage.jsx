@@ -33,7 +33,6 @@ const Signup = (props) => {
       console.error(e);
     }
   };
-// 1669x959
   return (
     <main className="flex items-center justify-center min-h-screen bg-no-repeat bg-cover bg-[url('../public/wine-table-pairing.jpg')]">
       <div className="w-full max-w-md">
