@@ -3,8 +3,7 @@ const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
-
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")(process.env.REACT_APP_STRIPE_SECRET_KEY);
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
@@ -30,32 +29,6 @@ const startApolloServer = async () => {
       context: authMiddleware,
     })
   );
-
-  app.post("/create-checkout-session", async (req, res) => {
-    const session = await stripe.checkout.sessions.create({
-    ui_mode: 'embedded',
-    line_items: [
-      {
-        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-        price: 'price_1POUhSBZUx6pYDq42OttFNVM',
-        quantity: 1,
-      },
-    ],
-    mode: 'payment',
-    return_url: `${PORT}/return?session_id={CHECKOUT_SESSION_ID}`,
-  });
-
-  res.send({clientSecret: session.client_secret});
-  });
-
-  app.get('/session-status', async (req, res) => {
-  const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
-
-  res.send({
-    status: session.status,
-    customer_email: session.customer_details.email
-  });
-  });
 
   db.once("open", () => {
     app.listen(PORT, () => {

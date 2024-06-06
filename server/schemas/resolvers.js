@@ -1,5 +1,6 @@
 const { User, Food, Wine, Cellar } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
+const stripe = require('stripe')('process.env.STRIPE_SECRET_KEY');
 
 const resolvers = {
   Query: {
@@ -29,6 +30,7 @@ const resolvers = {
       }
       throw new AuthenticationError("Not authenticated");
     },
+
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {

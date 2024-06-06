@@ -53,6 +53,11 @@ export default function Header() {
                 </a>
               </li>
             )}
+            <li>
+              <a href="/donation" className="hover:text-black">
+                Make a Donation
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
