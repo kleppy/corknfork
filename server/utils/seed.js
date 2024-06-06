@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Food = require("../models/Food");
 const Wine = require("../models/Wine");
 const User = require("../models/User");
+const Cellar = require("../models/Cellar");
 
 const corknforkDB = process.env.CORKNFORK_DB;
 
@@ -16,6 +17,7 @@ const seedData = async () => {
     await Food.deleteMany({});
     await Wine.deleteMany({});
     await User.deleteMany({});
+    await Cellar.deleteMany({});
 
     const foods = [
       {
@@ -73,7 +75,36 @@ const seedData = async () => {
 
     await Food.insertMany(foods);
     await Wine.insertMany(wines);
-    await User.insertMany(users);
+    const insertedUsers = await User.insertMany(users);
+
+    const steak = await Food.findOne({ name: "Steak" });
+    const salmon = await Food.findOne({ name: "Salmon" });
+    const cabernet = await Wine.findOne({ name: "Cabernet Sauvignon" });
+    const chardonnay = await Wine.findOne({ name: "Chardonnay" });
+
+    const john = insertedUsers.find((user) => user.username === "John");
+    const jane = insertedUsers.find((user) => user.username === "Jane");
+
+    const johnsCellar = new Cellar({
+      User: john._id,
+      Wine: cabernet._id,
+      Food: steak._id,
+    });
+
+    const janesCellar = new Cellar({
+      User: jane._id,
+      Wine: chardonnay._id,
+      Food: salmon._id,
+    });
+
+    await johnsCellar.save();
+    await janesCellar.save();
+
+    john.cellar.push(johnsCellar);
+    jane.cellar.push(janesCellar);
+
+    await john.save();
+    await jane.save();
 
     console.log("Data seeded successfully");
     mongoose.connection.close();
