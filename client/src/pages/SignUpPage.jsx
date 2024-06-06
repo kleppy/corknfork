@@ -33,9 +33,9 @@ const Signup = (props) => {
       console.error(e);
     }
   };
-
+// 1669x959
   return (
-    <main className="flex items-center justify-center min-h-screen bg-[url('../public/wine-table-pairing.jpg')]">
+    <main className="flex items-center justify-center min-h-screen bg-no-repeat bg-cover bg-[url('../public/wine-table-pairing.jpg')]">
       <div className="w-full max-w-md">
         <div className="bg-rose text-yellow shadow-md rounded-lg p-6">
           <h4 className="text-2xl font-semibold mb-6 text-center">Sign Up</h4>
