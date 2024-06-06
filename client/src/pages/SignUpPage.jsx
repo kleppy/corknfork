@@ -5,7 +5,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 
-const Signup = () => {
+const Signup = (props) => {
   const [formState, setFormState] = useState({
     username: "",
     email: "",
@@ -15,7 +15,6 @@ const Signup = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormState({
       ...formState,
       [name]: value,
@@ -24,8 +23,6 @@ const Signup = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
-
     try {
       const { data } = await addUser({
         variables: { ...formState },
@@ -38,53 +35,63 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+    <main className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-md">
+        <div className="bg-white shadow-md rounded-lg p-6">
+          <h4 className="text-2xl font-semibold mb-6 text-center">Sign Up</h4>
           <div className="card-body">
             {data ? (
-              <p>
+              <p className="text-center">
                 Success! You may now head{" "}
-                <Link to="/">back to the homepage.</Link>
+                <Link to="/" className="text-blue-500 hover:text-blue-700">
+                  back to the homepage.
+                </Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your username"
-                  name="username"
-                  type="text"
-                  value={formState.username}
-                  onChange={handleChange}
-                  autoComplete="username"
-                />
-                <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                  autoComplete="email"
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                  autoComplete="current-password"
-                />
-                <button className="btn btn-block btn-primary" type="submit">
+                <div className="mb-4">
+                  <input
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    placeholder="Your username"
+                    name="username"
+                    type="text"
+                    value={formState.username}
+                    onChange={handleChange}
+                    autoComplete="username"
+                  />
+                </div>
+                <div className="mb-4">
+                  <input
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    placeholder="Your email"
+                    name="email"
+                    type="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                    autoComplete="email"
+                  />
+                </div>
+                <div className="mb-6">
+                  <input
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    placeholder="******"
+                    name="password"
+                    type="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                    autoComplete="current-password"
+                  />
+                </div>
+                <button
+                  className="w-full bg-burgundy hover:bg-rose text-white font-bold py-2 px-4 rounded"
+                  type="submit"
+                >
                   Submit
                 </button>
               </form>
             )}
-
             {error && (
-              <div className="my-3 p-3 bg-danger text-white">
+              <div className="mt-4 p-3 bg-red-500 text-white text-center rounded">
                 {error.message}
               </div>
             )}
