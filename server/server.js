@@ -4,7 +4,7 @@ const { expressMiddleware } = require("@apollo/server/express4");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")(process.env.REACT_APP_STRIPE_SECRET_KEY);
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");

@@ -18,6 +18,7 @@ import HomePage from "./pages/HomePage";
 import LogInPage from "./pages/LogInPage";
 import SignUpPage from "./pages/SignUpPage";
 import CellarPage from "./pages/CellarPage";
+import DonationPage from "./pages/DonationPage";
 
 // Defines the accessible routes, and which components to respond to which URL.
 const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/cellar",
         element: <CellarPage />,
+      },
+      {
+        path: "/donation",
+        element: <DonationPage />,
       },
     ],
   },

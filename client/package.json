@@ -13,6 +13,7 @@
   "dependencies": {
     "@apollo/client": "^3.10.4",
     "@stripe/stripe-js": "^1.54.0",
+    "@stripe/react-stripe-js": "^1.6.0",
     "@testing-library/react": "^14.0.0",
     "graphql": "^16.8.1",
     "happy-dom": "^9.20.3",
