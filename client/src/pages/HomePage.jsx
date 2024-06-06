@@ -19,7 +19,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 pt-20">
       <div className="grid grid-cols-2 gap-4">
         <div>
           <h2 className="text-2xl font-bold mb-4">Foods</h2>
