@@ -35,9 +35,9 @@ const Signup = (props) => {
   };
 
   return (
-    <main className="flex items-center justify-center min-h-screen bg-gray-100">
+    <main className="flex items-center justify-center min-h-screen bg-[url('../public/wine-table-pairing.jpg')]">
       <div className="w-full max-w-md">
-        <div className="bg-white shadow-md rounded-lg p-6">
+        <div className="bg-rose text-yellow shadow-md rounded-lg p-6">
           <h4 className="text-2xl font-semibold mb-6 text-center">Sign Up</h4>
           <div className="card-body">
             {data ? (
@@ -83,7 +83,7 @@ const Signup = (props) => {
                   />
                 </div>
                 <button
-                  className="w-full bg-burgundy hover:bg-rose text-white font-bold py-2 px-4 rounded"
+                  className="w-full bg-burgundy hover:bg-black text-yellow font-bold py-2 px-4 rounded"
                   type="submit"
                 >
                   Submit
