@@ -1,4 +1,4 @@
-// Imports Stripe requirements.
+// Imports Stripe requirement
 import { loadStripe } from "@stripe/stripe-js";
 import {
   EmbeddedCheckoutProvider,
@@ -12,9 +12,7 @@ import {
 } from "react-router-dom";
 
 
-const stripePromise = loadStripe(
-  "pk_test_51POU8YBZUx6pYDq4bZy2Tbk4Haxp9hOsF23jySQHCyurt3dKA9trx6rLa6Lou0SYy4ritge7REkb2hfRWJF3P5BT005vWsNnJs"
-);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
 const CheckoutForm = () => {
   const fetchClientSecret = useCallback(() => {
