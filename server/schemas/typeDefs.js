@@ -43,7 +43,7 @@ const typeDefs = gql`
     foods: [Food]
     wine(wineId: ID!): Wine
     food(foodId: ID!): Food
-    user(username: String!): User
+    user(userId: ID!): User
     cellar(username: String): [Cellar]
     cellarById(cellarId: ID!): Cellar
     me: User

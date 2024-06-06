@@ -3,8 +3,10 @@ const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    cellarById: async (parent, { cellarId }) => {
-      return Cellar.findOne({ _id: cellarId });
+    user: async (parent, {userId}, context) => {
+      console.log(userId)
+      return User.findOne({_id: userId}).populate("cellar");
+
     },
     wines: async () => {
       return Wine.find();
