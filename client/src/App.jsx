@@ -1,8 +1,7 @@
 // Imports required imports from React.
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import "./output.css";
-//import Stripe from "stripe"; // figure out how to import stripe
 
 // Imports custom components.
 import Header from "./components/Header";
