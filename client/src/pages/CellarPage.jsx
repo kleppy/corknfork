@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-
+import { Link } from 'react-router-dom'; 
 import React from "react";
 
 import { QUERY_USER } from '../utils/queries';
@@ -49,9 +49,15 @@ const CellarPage = () => {
     );
   }
 
-  
-  
-  
+  return (
+    <h2>
+      You need to be logged in to see this. Use the navigation links above to
+      sign up or log in!
+      <Link to="/signup" className="text-burgundy hover:text-rose mb-4">
+      ← Go to Signup
+      </Link>
+    </h2>
+  ); 
 };
 
 export default CellarPage;
