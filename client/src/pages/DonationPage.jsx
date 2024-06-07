@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { loadStripe } from "@stripe/stripe-js";
 import {
@@ -10,7 +10,9 @@ import {
 import { CREATE_PAYMENT_INTENT } from "../utils/mutations"; // Import your mutation
 
 // Replace with your actual Stripe publishable key
-const stripePromise = loadStripe("YOUR_STRIPE_PUBLISHABLE_KEY");
+const stripePromise = loadStripe(
+  "pk_test_51POU8YBZUx6pYDq4bZy2Tbk4Haxp9hOsF23jySQHCyurt3dKA9trx6rLa6Lou0SYy4ritge7REkb2hfRWJF3P5BT005vWsNnJs"
+);
 
 const CheckoutForm = () => {
   const stripe = useStripe();
@@ -70,7 +72,7 @@ const DonationPage = () => {
   console.log("DonationPage is rendering!");
   return (
     <Elements stripe={stripePromise}>
-      <CheckoutForm />
+      {stripe && <CheckoutForm />}
     </Elements>
   );
 };
