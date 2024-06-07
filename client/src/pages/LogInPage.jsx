@@ -37,20 +37,11 @@ function Login(props) {
         <div className="bg-rose text-yellow shadow-md rounded-lg p-6">
           <h4 className="text-3xl font-semibold mb-6 text-center">Login</h4>
           <div className="card-body">
-            <Link to="/signup" className="text-burgundy hover:text-rose mb-4">
-              ← Go to Signup
-            </Link>
-            <form
-              onSubmit={handleFormSubmit}
-              className="bg-white p-8 shadow-md rounded-lg w-full max-w-md"
-            >
+            <form onSubmit={handleFormSubmit}>
               <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-700 mb-2">
-                  Email address:
-                </label>
                 <input
                   className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  placeholder="youremail@test.com"
+                  placeholder="YourEmail@test.com"
                   name="email"
                   type="email"
                   id="email"
@@ -59,9 +50,6 @@ function Login(props) {
                 />
               </div>
               <div className="mb-6">
-                <label htmlFor="pwd" className="block text-gray-700 mb-2">
-                  Password:
-                </label>
                 <input
                   className="w-full px-3 py-2 border border-gray-300 rounded-md"
                   placeholder="******"
@@ -77,6 +65,9 @@ function Login(props) {
                   <p>The provided credentials are incorrect</p>
                 </div>
               )}
+              <Link to="/signup" className="text-burgundy hover:text-rose mb-4">
+              ← Go to Signup
+              </Link>
               <div className="flex items-center justify-between">
                 <button
                   type="submit"

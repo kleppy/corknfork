@@ -62,7 +62,7 @@ const Signup = (props) => {
                 <div className="mb-4">
                   <input
                     className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                    placeholder="Your email"
+                    placeholder="YourEmail@test.com"
                     name="email"
                     type="email"
                     value={formState.email}
