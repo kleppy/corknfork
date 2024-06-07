@@ -37,7 +37,7 @@ const Signup = (props) => {
     <main className="flex items-center justify-center min-h-screen bg-no-repeat bg-cover bg-[url('../public/wine-table-pairing.jpg')]">
       <div className="w-full max-w-md">
         <div className="bg-rose text-yellow shadow-md rounded-lg p-6">
-          <h4 className="text-2xl font-semibold mb-6 text-center">Sign Up</h4>
+          <h4 className="text-3xl font-semibold mb-6 text-center">Sign Up</h4>
           <div className="card-body">
             {data ? (
               <p className="text-center">

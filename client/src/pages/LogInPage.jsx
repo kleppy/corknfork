@@ -32,7 +32,7 @@ function Login(props) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-no-repeat bg-cover bg-[url('../public/login-open-wine.jpg')]">
       <Link to="/signup" className="text-burgundy hover:text-rose mb-4">
         ← Go to Signup
       </Link>
