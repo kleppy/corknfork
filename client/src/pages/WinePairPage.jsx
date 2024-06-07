@@ -1,22 +1,21 @@
 import React from "react";
-import FoodList from "../components/FoodList";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { useMutation, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { ADD_PAIR } from "../utils/mutations";
-import { QUERY_FOODS, QUERY_USER, QUERY_WINE } from "../utils/queries";
+import { QUERY_WINE, QUERY_USER, QUERY_FOODS } from "../utils/queries";
 import Auth from "../utils/auth";
 
 const WinePairPage = () => {
+  const { wineId } = useParams();
   const { data: dataFoods } = useQuery(QUERY_FOODS);
   const foods = dataFoods?.foods || [];
-  const { wineId } = useParams();
-  const { data } = useQuery(QUERY_WINE, {
+  const { data: dataWine } = useQuery(QUERY_WINE, {
     variables: { wineId: wineId },
   });
 
-  const wine = data?.wine || {};
-  console.log(wine);
+  const wine = dataWine?.wine || {};
+  const winePairs = wine.pairs || [];
 
   if (Auth.loggedIn()) {
     const userId = Auth.getProfile().data._id;
@@ -25,9 +24,11 @@ const WinePairPage = () => {
     });
     const user = data?.user || {};
 
-    if (loading) {
-      return <div>Loading...</div>;
-    }
+    // Filter foods based on food.flavor and wine.pairs.
+    const preferredFoods = foods.filter((food) =>
+      food.flavors.some((flavor) => winePairs.includes(flavor))
+    );
+
     return (
       <div className="pt-20">
         <div className="space-y-4">
@@ -45,13 +46,29 @@ const WinePairPage = () => {
         </div>
         <div>
           <h2 className="text-2xl font-bold mb-4">Preferred Pairs</h2>
-          {/* TODO: Add code to display the wine that's flavors match the selected foods pairs with. */}
+          {preferredFoods.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {preferredFoods.map((food) => (
+                <div key={food._id} className="border rounded-lg p-4 shadow">
+                  <h3 className="text-xl font-semibold">{food.name}</h3>
+                  <img
+                    src={`/${food.image}`}
+                    alt={food.name}
+                    className="w-full h-48 object-contain mb-2"
+                  />
+                  <p className="text-gray-700">
+                    Flavors: {food.flavors.join(", ")}
+                  </p>
+                  <button className="bg-burgundy hover:bg-rose text-white font-bold py-2 px-4 rounded mt-2">
+                    Save Pair
+                  </button>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div>No preferred pairs found.</div>
+          )}
         </div>
-        {/* For Future Updates where we will let users add unconventional pairs. */}
-        {/* <div>
-          <h2 className="text-2xl font-bold mb-4">All Foods</h2>
-          <FoodList foods={foods} state="true" />
-        </div> */}
       </div>
     );
   }
