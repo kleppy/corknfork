@@ -65,16 +65,19 @@ function Login(props) {
                   <p>The provided credentials are incorrect</p>
                 </div>
               )}
-              <Link to="/signup" className="text-burgundy hover:text-rose mb-4">
-              ← Go to Signup
-              </Link>
               <div className="flex items-center justify-between">
                 <button
                   type="submit"
-                  className="bg-burgundy hover:bg-rose text-white font-bold py-2 px-4 rounded"
+                  className="w-2/5 bg-burgundy hover:bg-black text-yellow font-bold py-2 px-4 rounded"
                 >
                   Submit
                 </button>
+                <br></br>
+              {/* <div> */}
+                <Link to="/signup" className="w-2/5 bg-burgundy hover:bg-black text-yellow text-center font-bold py-2 px-4 rounded">
+                ← Go to Signup
+                </Link>
+              {/* </div> */}
               </div>
             </form>
             </div>
