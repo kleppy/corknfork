@@ -19,17 +19,17 @@ export default function HomePage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 pt-20">
-      <div className="grid grid-cols-2 gap-4">
+    <main className="px-4 mx-auto pt-20 py-8 bg-no-repeat bg-cover bg-[url('../public/meat-fork-wine-bg.jpg')]">
+      <div className="grid grid-cols-2 columns-xs gap-4">
         <div>
-          <h2 className="text-2xl font-bold mb-4">Foods</h2>
+          <h2 className="text-2xl text-yellow font-bold mb-4">Foods</h2>
           <FoodList foods={foods} />
         </div>
         <div>
-          <h2 className="text-2xl font-bold mb-4">Wines</h2>
+          <h2 className="text-2xl text-yellow font-bold mb-4">Wines</h2>
           <WineList wines={wines} />
         </div>
       </div>
-    </div>
+    </main>
   );
 }
