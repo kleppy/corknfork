@@ -67,6 +67,7 @@ const CheckoutForm = () => {
 };
 
 const DonationPage = () => {
+  console.log("DonationPage is rendering!");
   return (
     <Elements stripe={stripePromise}>
       <CheckoutForm />
