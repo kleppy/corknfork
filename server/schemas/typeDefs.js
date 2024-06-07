@@ -59,6 +59,14 @@ const typeDefs = gql`
       FoodId: ID!
     ): Cellar
   }
+
+  type Mutation {
+    createPaymentIntent(amount: Int!): PaymentIntent
+  }
+
+  type PaymentIntent {
+    clientSecret: String
+  }
 `;
 
 module.exports = typeDefs;

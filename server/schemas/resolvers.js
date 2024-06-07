@@ -65,6 +65,14 @@ const resolvers = {
       }
       return { success: true };
     },
+    async createPaymentIntent(_, { amount }) {
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount,
+        currency: "usd",
+        // automatic_payment_methods: { enabled: true },
+      });
+      return { clientSecret: paymentIntent.client_secret };
+    },
   },
 };
 
