@@ -20,8 +20,38 @@ No installation necesssary. Simply visit https://corknfork.com.
 
 ## Usage
 
-TODO: Write how to use
-TODO: Add Screenshots
+1. Sign Up
+
+   - Navigate to the Home Page of CorknFork.
+   - Click "Sign Up" in the top right corner to create an account.
+   - Upon completion, you will be automatically signed in.
+
+     ![Sign Up Page](client/public/screenshots/corknfork_signuppage.png)
+
+2. Account Management
+
+   - You can log out at any time and log back in using your credentials.
+
+     ![Log In Page](client/public/screenshots/corknfork_loginpage.png)
+
+3. Exploring Pairings
+
+   - Return to the Home Page using the navigation links at the top.
+
+     ![Home Page](client/public/screenshots/corknfork_homepage.png)
+
+   - Find a wine or food item of interest and click "What Pairs with this?".
+   - This will bring up a pairing page for the selected item.
+
+     ![Pair Page](client/public/screenshots/corknfork_pairpage.png)
+
+   - If a pairing interests you, click "Save Pair" to add it to your cellar.
+
+4. Viewing Saved Pairs
+
+   - Navigate to "Wine Cellar" to see all the pairs you have saved.
+
+     ![Cellar Page](client/public/screenshots/corknfork_cellarpage.png)
 
 ## Credits
 
