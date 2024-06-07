@@ -31,7 +31,7 @@ const CellarPage = () => {
           </Link>
           <Link
             to="/signup"
-            className="bg-burgundy hover:bg-black text-yellow font-bold py-2 px-4 rounded "
+            className="bg-burgundy hover:bg-black text-yellow font-bold py-2 px-4 rounded mb-4"
           >
             Go to Signup
           </Link>
