@@ -34,3 +34,11 @@ export const ADD_PAIR = gql`
     }
   }
 `
+
+export const CREATE_PAYMENT_INTENT = gql`
+  mutation createPaymentIntent($amount: Int!) {
+    createPaymentIntent(amount: $amount) {
+      clientSecret
+    }
+  }
+`;
