@@ -41,17 +41,26 @@ const CellarPage = () => {
 
     if (user.cellar.length === 0) {
       return (
-        <div className="flex flex-col items-center justify-center h-screen">
-          <h2 className="text-3xl font-semibold mb-6 text-center px-4">
-            Hi {user.username}, You haven't added any foods or wines to your
-            cellar. Go to Home to find some!
-          </h2>
-          <Link
-            to="/"
-            className="bg-burgundy hover:bg-yellow text-white font-bold py-2 px-4 rounded mb-4"
-          >
-            Go to Home
-          </Link>
+        <div className="bg-no-repeat bg-cover bg-[url('../public/wine-cellar-xxl-bg.jpg')] flex flex-col items-center justify-center h-screen">
+          <div className="w-full max-w-md">
+            <div className="bg-rose text-yellow shadow-md rounded-lg p-8"> 
+              <h2 className="text-3xl font-semibold mb-6 text-center">Party Foul!</h2>
+              <div className="card-body text-center">  
+                <p>Uh-oh {user.username}! Looks like your wine cellar is looking a bit
+                bare. To elevate your culinary creations, you need the right wines. Head back to the 
+                homepage to find the perfect bottles to complement your dishes and bring
+                your cellar to gourmet status.
+                </p>
+                <br></br>
+                <Link
+                  to="/"
+                  className="w-full bg-burgundy hover:bg-black text-yellow font-bold py-2 px-4 rounded"
+                >
+                  Go to Home
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       );
     }
