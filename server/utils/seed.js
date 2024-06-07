@@ -30,7 +30,7 @@ const seedData = async () => {
         name: "Salmon",
         image: "./imgs/salmon.jpeg",
         pairs: ["Crisp", "Buttery"],
-        flavors: ["Rich", "Buttery"],
+        flavors: ["Clean", "Buttery"],
       },
       {
         name: "Chocolate Cake",
@@ -50,7 +50,7 @@ const seedData = async () => {
       {
         name: "Chardonnay",
         image: "./imgs/chardonnay.jpeg",
-        pairs: ["Rich", "Buttery"],
+        pairs: ["Clean", "Buttery"],
         flavors: ["Crisp", "Buttery"],
       },
       {
