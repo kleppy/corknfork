@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "tailwind": "tailwindcss build -i src/app.css -o src/output.css"
+    "tailwind": "tailwindcss build -i src/App.css -o src/output.css"
   },
   "dependencies": {
     "@apollo/client": "^3.10.4",
