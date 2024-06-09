@@ -1,11 +1,12 @@
-require("dotenv").config();
+//! require("dotenv").config();
 const mongoose = require("mongoose");
 const Food = require("../models/Food");
 const Wine = require("../models/Wine");
 const User = require("../models/User");
 const Cellar = require("../models/Cellar");
 
-const corknforkDB = process.env.CORKNFORK_DB;
+const corknforkDB =
+  "mongodb://127.0.0.1:27017/corknforkDB"; /* Replace with .env variable */
 
 const seedData = async () => {
   try {
