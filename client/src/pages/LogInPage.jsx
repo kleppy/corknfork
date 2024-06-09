@@ -32,7 +32,7 @@ function Login(props) {
   };
 
   return (
-    <main className="flex items-center justify-center min-h-screen bg-no-repeat bg-cover bg-[url('../public/login-open-wine.jpg')]">
+    <main className="flex items-center justify-center min-h-screen bg-no-repeat bg-cover bg-[url('/login-open-wine.jpg')]">
       <div className="w-full max-w-md">
         <div className="bg-rose text-yellow shadow-md rounded-lg p-6">
           <h4 className="text-3xl font-semibold mb-6 text-center">Login</h4>
