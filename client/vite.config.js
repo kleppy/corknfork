@@ -6,6 +6,10 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   // Define plugins to be used by Vite.
   plugins: [react()],
+  //! Chat GPT Recommended.
+  build: {
+    outDir: "dist",
+  },
   // Frontend server configuration to establish what the client sees.
   server: {
     port: 3000,
