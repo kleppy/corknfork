@@ -41,7 +41,7 @@ const CellarPage = () => {
 
     if (user.cellar.length === 0) {
       return (
-        <div className="bg-no-repeat bg-cover bg-[url('../public/wine-cellar-xxl-bg.jpg')] flex flex-col items-center justify-center h-screen">
+        <div className="bg-no-repeat bg-cover bg-[url('/wine-cellar-xxl-bg.jpg')] flex flex-col items-center justify-center h-screen">
           <div className="w-full max-w-md">
             <div className="bg-rose text-yellow shadow-md rounded-lg p-8"> 
               <h2 className="text-3xl font-semibold mb-6 text-center">Party Foul!</h2>
@@ -88,7 +88,7 @@ const CellarPage = () => {
   }
 
   return (
-    <div className="bg-no-repeat bg-cover bg-[url('../public/wine-cellar-xxl-bg.jpg')] flex flex-col items-center justify-center h-screen">
+    <div className="bg-no-repeat bg-cover bg-[url('/wine-cellar-xxl-bg.jpg')] flex flex-col items-center justify-center h-screen">
       <div className="w-full max-w-md">
         <div className="bg-rose text-yellow shadow-md rounded-lg p-8">
           <h2 className="text-3xl font-semibold mb-6 text-center">

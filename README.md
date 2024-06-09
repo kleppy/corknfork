@@ -69,4 +69,8 @@ This project is licensed under the terms of the MIT license. See the badge at th
 
 Feel free to reach out to us with any additional questions through the following methods:
 
-TODO: Insert Methods and Contact Info
+TODO: Insert Methods and Contact Info (jesse, james, jon, erin)
+
+[Link to Github](https://github.com/chelleyoungw)
+
+<a href="mailto:chelleyoungw@gmail.com">chelleyoungw@gmail.com</a>
