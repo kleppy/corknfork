@@ -16,7 +16,7 @@ Cork N Fork is a groundbreaking pairing portal built with an interactive MERN st
 
 ## Installation
 
-No installation necesssary. Simply visit https://corknfork.com.
+No installation necesssary. Simply visit https://corknfork-c4nj.onrender.com.
 
 [Link to CorkNFork Github Repository](https://github.com/kleppy/corknfork.git)
 
@@ -71,10 +71,16 @@ This project is licensed under the terms of the MIT license. See the badge at th
 
 Feel free to reach out to us with any additional questions through the following methods:
 
-TODO: Insert Methods and Contact Info (jesse, james, jon, erin)
-
 <ins>Github</ins>
-- [Link to Chelle Wood's Github](https://github.com/chelleyoungw)
+
+- [Jon](https://github.com/kleppy)
+- [Erin](https://github.com/sinclairems)
+- [Jesse Denier](https://github.com/JesseDenier)
+- [James Ohlausen](https://github.com/OhlhJames)
+- [Chelle Wood](https://github.com/chelleyoungw)
 
 <ins>Email</ins>
+
+- <a href="mailto:ohlhjames@gmail.com">ohlhjames@gmail.com</a>
+- <a href="mailto:jessecdenier@gmail.com">jessecdenier@gmail.com</a>
 - <a href="mailto:chelleyoungw@gmail.com">chelleyoungw@gmail.com</a>
