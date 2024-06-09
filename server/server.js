@@ -3,7 +3,9 @@ const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
-const stripe = require("stripe")(process.env.REACT_APP_STRIPE_SECRET_KEY);
+const stripe = require("stripe")(
+  "pk_test_51POU8YBZUx6pYDq4bZy2Tbk4Haxp9hOsF23jySQHCyurt3dKA9trx6rLa6Lou0SYy4ritge7REkb2hfRWJF3P5BT005vWsNnJs"
+); //Replace with .env variable.
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
@@ -21,7 +23,7 @@ const startApolloServer = async () => {
 
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
-  app.use(express.static("public"));
+  app.use(express.static(path.join(__dirname, "../client"))); //! Recommended by ChatGPT
 
   app.use(
     "/graphql",
@@ -29,6 +31,12 @@ const startApolloServer = async () => {
       context: authMiddleware,
     })
   );
+
+  //! Recommended by ChatGPT
+  // Catch-all route to serve index.html from 'client' for any unknown routes (for client-side routing)
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client", "index.html"));
+  });
 
   db.once("open", () => {
     app.listen(PORT, () => {
