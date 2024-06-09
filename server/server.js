@@ -23,17 +23,7 @@ const startApolloServer = async () => {
 
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
-  // app.use(express.static(path.join(__dirname, "../client"))); //! Recommended by ChatGPT
-  //! Added by Jon as replacement for line above that may allow .jsx files to be served.
-  app.use(
-    express.static(path.join(__dirname, "../client"), {
-      setHeaders: (res, path, stat) => {
-        if (path.endsWith(".jsx")) {
-          res.set("Content-Type", "application/javascript");
-        }
-      },
-    })
-  );
+  app.use(express.static(path.join(__dirname, "../client"))); //! Recommended by ChatGPT
 
   app.use(
     "/graphql",
