@@ -23,7 +23,18 @@ const startApolloServer = async () => {
 
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
-  app.use(express.static(path.join(__dirname, "../client"))); //! Recommended by ChatGPT
+  //app.use(express.static(path.join(__dirname, "../client"))); //! Recommended by ChatGPT
+
+  // Serve static files from the 'client' directory //! Recommended by Jon
+  app.use(
+    express.static(path.join(__dirname, "../client"), {
+      setHeaders: (res, path, stat) => {
+        if (path.endsWith(".jsx")) {
+          res.set("Content-Type", "application/javascript");
+        }
+      },
+    })
+  );
 
   app.use(
     "/graphql",
