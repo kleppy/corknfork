@@ -18,6 +18,8 @@ Cork N Fork is a groundbreaking pairing portal built with an interactive MERN st
 
 No installation necesssary. Simply visit https://corknfork.com.
 
+[Link to CorkNFork Github Repository](https://github.com/kleppy/corknfork.git)
+
 ## Usage
 
 1. Sign Up
@@ -71,6 +73,8 @@ Feel free to reach out to us with any additional questions through the following
 
 TODO: Insert Methods and Contact Info (jesse, james, jon, erin)
 
-[Link to Github](https://github.com/chelleyoungw)
+<ins>Github</ins>
+- [Link to Chelle Wood's Github](https://github.com/chelleyoungw)
 
-<a href="mailto:chelleyoungw@gmail.com">chelleyoungw@gmail.com</a>
+<ins>Email</ins>
+- <a href="mailto:chelleyoungw@gmail.com">chelleyoungw@gmail.com</a>
