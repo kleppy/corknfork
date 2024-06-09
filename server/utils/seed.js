@@ -6,7 +6,7 @@ const User = require("../models/User");
 const Cellar = require("../models/Cellar");
 
 const corknforkDB =
-  "mongodb://127.0.0.1:27017/corknforkDB"; /* Replace with .env variable */
+  "mongodb+srv://admin2:admin2@cluster0.j9d3ubi.mongodb.net/cornknforkDB"; /* Replace with .env variable */
 
 const seedData = async () => {
   try {
