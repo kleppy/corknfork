@@ -17,6 +17,7 @@
   "dependencies": {
     "@stripe/react-stripe-js": "^2.7.1",
     "@stripe/stripe-js": "^3.5.0",
+    "@vitejs/plugin-react": "^4.3.0",
     "concurrently": "^8.2.2",
     "dotenv": "^16.4.5",
     "mongoose": "^8.4.0",
