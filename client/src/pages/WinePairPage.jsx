@@ -36,7 +36,7 @@ const WinePairPage = () => {
             {wine.name}'s Pairing Board
           </h2>
           <div key={wine._id} className="border rounded-lg p-4 shadow">
-            <h3 className="text-xl font-semibold">{wine.name}</h3>
+            <h3 className="text-xl text-yellow font-semibold">{wine.name}</h3>
             <img
               src={`/${wine.image}`}
               alt={wine.name}

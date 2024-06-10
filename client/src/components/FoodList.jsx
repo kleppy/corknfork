@@ -12,7 +12,7 @@ const FoodList = ({ foods, state }) => {
 
   // Return the JSX to render the list of foods or a message if no foods are available
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 text-yellow">
       {foods.length ? (
         // Map over the foods array and render each food item
         foods.map((food) => (
@@ -30,13 +30,13 @@ const FoodList = ({ foods, state }) => {
               <strong>Pairs With:</strong> {food.pairs.join(", ")}
             </p>
             {!state ? (
-              <Link className="btn bg-burgundy hover:bg-rose text-white px-4 py-2 rounded-lg"
+              <Link className="btn bg-burgundy hover:bg-rose text-yellow px-4 py-2 rounded-lg"
               to ={`/fpair/${food._id}`}
               >
                 What Pairs with this?
               </Link>
             ) :(
-              <Link className="btn bg-burgundy hover:bg-rose text-white px-4 py-2 rounded-lg"
+              <Link className="btn bg-burgundy hover:bg-rose text-yellow px-4 py-2 rounded-lg"
               >
                 Pair
               </Link>

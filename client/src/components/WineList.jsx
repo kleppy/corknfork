@@ -12,7 +12,7 @@ const WineList = ({ wines, state }) => {
 
   // Return the JSX to render the list of wines or a message if no wines are available
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 text-yellow">
       {wines.length ? (
         // Map over the wines array and render each wine item
         wines.map((wine) => (
@@ -30,13 +30,13 @@ const WineList = ({ wines, state }) => {
               <strong>Pairs With:</strong> {wine.pairs.join(", ")}
             </p> 
             {!state ? (
-              <Link className="btn bg-burgundy hover:bg-rose text-white px-4 py-2 rounded-lg"
+              <Link className="btn bg-burgundy hover:bg-black text-yellow px-4 py-2 rounded-lg"
               to ={`/wpair/${wine._id}`}
               >
                 What Pairs with this?
               </Link>
             ) :(
-              <Link className="btn bg-burgundy hover:bg-rose text-white px-4 py-2 rounded-lg"
+              <Link className="btn bg-burgundy hover:bg-black text-yellow px-4 py-2 rounded-lg"
               >
               Pair
               </Link>
