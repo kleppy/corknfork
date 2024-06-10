@@ -7,12 +7,9 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
-import { CREATE_PAYMENT_INTENT } from "../utils/mutations"; // Import your mutation
+import { CREATE_PAYMENT_INTENT } from "../utils/mutations"; 
 
-// Replace with your actual Stripe publishable key
-const stripePromise = loadStripe(
-  "pk_test_51POU8YBZUx6pYDq4bZy2Tbk4Haxp9hOsF23jySQHCyurt3dKA9trx6rLa6Lou0SYy4ritge7REkb2hfRWJF3P5BT005vWsNnJs"
-);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const CheckoutForm = () => {
   const stripe = useStripe();
