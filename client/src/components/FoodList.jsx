@@ -1,12 +1,11 @@
 import React from "react";
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Functional component for displaying a list of foods
 const FoodList = ({ foods, state }) => {
   // Destructure loading, data, and error from the useQuery hook
-  console.log(foods)
+  console.log(foods);
   // Log the fetched foods to the console for debugging purposes
   console.log("Fetched foods:", foods);
 
@@ -16,7 +15,10 @@ const FoodList = ({ foods, state }) => {
       {foods.length ? (
         // Map over the foods array and render each food item
         foods.map((food) => (
-          <div key={food._id} className="border rounded-lg p-4 shadow">
+          <div
+            key={food._id}
+            className="bg-white bg-opacity-25 border rounded-lg p-4 shadow"
+          >
             <h3 className="text-xl font-semibold">{food.name}</h3>
             <img
               src={food.image}
@@ -30,14 +32,14 @@ const FoodList = ({ foods, state }) => {
               <strong>Pairs With:</strong> {food.pairs.join(", ")}
             </p>
             {!state ? (
-              <Link className="btn bg-burgundy hover:bg-rose text-yellow px-4 py-2 rounded-lg"
-              to ={`/fpair/${food._id}`}
+              <Link
+                className="btn bg-burgundy hover:bg-rose text-yellow px-4 py-2 rounded-lg"
+                to={`/fpair/${food._id}`}
               >
                 What Pairs with this?
               </Link>
-            ) :(
-              <Link className="btn bg-burgundy hover:bg-rose text-yellow px-4 py-2 rounded-lg"
-              >
+            ) : (
+              <Link className="btn bg-burgundy hover:bg-rose text-yellow px-4 py-2 rounded-lg">
                 Pair
               </Link>
             )}

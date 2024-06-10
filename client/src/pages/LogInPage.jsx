@@ -66,21 +66,25 @@ function Login(props) {
                 </div>
               )}
               <div className="flex items-center justify-between">
+                {/* <div> */}
+                <Link
+                  to="/signup"
+                  className="w-2/5 bg-burgundy hover:bg-black text-yellow text-center font-bold py-2 px-4 rounded"
+                >
+                  Go to Signup
+                </Link>
+                {/* </div> */}
+
+                <br></br>
                 <button
                   type="submit"
                   className="w-2/5 bg-burgundy hover:bg-black text-yellow font-bold py-2 px-4 rounded"
                 >
                   Submit
                 </button>
-                <br></br>
-              {/* <div> */}
-                <Link to="/signup" className="w-2/5 bg-burgundy hover:bg-black text-yellow text-center font-bold py-2 px-4 rounded">
-                ← Go to Signup
-                </Link>
-              {/* </div> */}
               </div>
             </form>
-            </div>
+          </div>
         </div>
       </div>
     </main>
