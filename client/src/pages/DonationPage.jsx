@@ -7,9 +7,9 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
-import { CREATE_PAYMENT_INTENT } from "../utils/mutations"; 
+import { CREATE_PAYMENT_INTENT } from "../utils/mutations";
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+// const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const CheckoutForm = () => {
   const stripe = useStripe();
@@ -68,9 +68,7 @@ const CheckoutForm = () => {
 const DonationPage = () => {
   console.log("DonationPage is rendering!");
   return (
-    <Elements stripe={stripePromise}>
-      {stripe && <CheckoutForm />}
-    </Elements>
+    <Elements stripe={stripePromise}>{stripe && <CheckoutForm />}</Elements>
   );
 };
 
